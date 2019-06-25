@@ -20,5 +20,6 @@ namespace BeautyForestAgent
         {
             InitializeComponent();
         }
+
     }
 }

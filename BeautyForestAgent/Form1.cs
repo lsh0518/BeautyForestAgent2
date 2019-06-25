@@ -11,10 +11,15 @@ namespace BeautyForestAgent
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public string Title
+        { 
+            set { this.Text = value; }
+        }
+    public Form1()
         {
             InitializeComponent();
         }
+
         private void VisibleChange(bool visible)
         {
             this.Visible = visible;
@@ -46,6 +51,77 @@ namespace BeautyForestAgent
         private void NtiTray_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             VisibleChange(true);
+        }
+
+        private void 끝내기ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.statusMessage.Text = "종료합니다.";
+            Application.ExitThread();  // 어플리케이션 쓰레드 완전 종료
+        }
+
+        private void 수정ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowModal();
+
+        }
+
+        private void ShowModal()
+        {
+            this.statusMessage.Text = "모달 창을 띄웁니다.";
+            FormAdd FA = new FormAdd();
+            FA.Title = "모달 창띄우기";
+            FA.ShowDialog();
+        }
+
+        private void 추가ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowModaless();
+
+        }
+
+        private void ShowModaless()
+        {
+            this.statusMessage.Text = "모달리스 창을 띄웁니다.";
+            FormModify FM = new FormModify();
+            FM.Title = "모달리스 창띄우기";
+            FM.Show();
+        }
+        private void BtmModal_Click(object sender, EventArgs e)
+        {
+            ShowModal();
+        }
+        private void BtmModaless_Click(object sender, EventArgs e)
+        {
+            ShowModaless();
+        }
+
+        private void 이프로그램은ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowModals();
+        }
+
+        private void ShowModals()
+        {
+            this.statusMessage.Text = "모달리스 창을 띄웁니다.";
+            FormAbout ABOUT = new FormAbout();
+            ABOUT.Title = "모달리스 창띄우기";
+            ABOUT.Show();
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            this.statusMessage.Text = "모달 창을 띄웁니다.";
+            FormAdd m = new FormAdd();
+            m.Title = "모달 창띄우기";
+            m.ShowDialog();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            this.statusMessage.Text = "모달 창을 띄웁니다.";
+            FormAdd m = new FormAdd();
+            m.Title = "모달 창띄우기";
+            m.ShowDialog();
         }
     }
 
